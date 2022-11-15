@@ -1,0 +1,21 @@
+{
+  "name": "ece-devops-thibaut-come",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"coucou toi\" && exit 1",
+    "start": "node package-lock.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thibasto/ece-devops-thibaut-come.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thibasto/ece-devops-thibaut-come/issues"
+  },
+  "homepage": "https://github.com/Thibasto/ece-devops-thibaut-come#readme"
+}
