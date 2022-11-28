@@ -1,1 +1,30 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    default : 
+      run:
+      working-directory: lab
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x, 16.x]
+        redis-version: [6]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: " myapp-ece"
+          heroku_email: "come.chappuid@edu.ece.fr"
+          appdir: lab
 
