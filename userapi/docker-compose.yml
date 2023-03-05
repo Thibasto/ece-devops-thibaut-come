@@ -1,0 +1,21 @@
+version: '3'
+services:
+  serv:
+    image: redis
+    command: redis-server 
+    ports:
+      - "6379:6379"
+    volumes:
+      - db-data:/data
+  web:
+    depends_on:
+      - redis
+    build: .
+    ports:
+      - "3001:3000"
+    environment:
+      - REDIS_HOST=serv
+      - REDIS_PORT=6379
+volumes:
+  db-data:
+

@@ -1,0 +1,17 @@
+---
+
+- name: redis initialization
+  service:
+    name: redis
+    state: started
+    enabled: yes
+
+- name: user api
+  shell: npm run test
+  args:
+    chdir: /myProject/userapi
+  register: healthcheck
+
+- name: results
+  debug:
+    msg: "{{ healthcheck.stdout_lines }}"

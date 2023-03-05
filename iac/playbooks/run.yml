@@ -1,0 +1,8 @@
+- hosts: project
+  become: true
+  roles:
+  - role: project/install
+    tags: install
+
+  - role: project/healthchecks
+    tags: healthchecks

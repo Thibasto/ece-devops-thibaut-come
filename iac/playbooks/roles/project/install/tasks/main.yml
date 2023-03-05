@@ -1,0 +1,64 @@
+---
+- name: Install required packages
+  yum:
+    name:
+      - curl
+      - policycoreutils-python
+      - openssh-server
+    state: latest
+
+- name: Enable and start sshd
+  service:
+    name: sshd
+    state: started
+    enabled: yes
+
+- name: Enable HTTP+HTTPS access
+  firewalld:
+    # This is how we use a variable
+    service: "{{ item }}"
+    permanent: yes
+    state: enabled
+  # The module will be run for each item
+  with_items:
+    - http
+    - https
+
+- name: Reload firewalld
+  service:
+    name: firewalld
+    state: reloaded
+
+- name: Install postfix
+  yum:
+    name: postfix
+    state: latest
+
+- name: Enable and start postfix
+  service:
+    name: postfix
+    state: started
+    enabled: yes
+
+- name: redis install
+  yum:
+    name: redis
+    state: latest
+
+- name: nodejs last version
+  get_url:
+    url: https://rpm.nodesource.com/setup_16.x
+    dest: /tmp/script.rpm.sh
+
+- name: script nodejs
+  script: /tmp/script.rpm.sh
+
+- name: nodejs install
+  yum:
+    name: nodejs
+    state: present
+
+- name: npm packages
+  shell: npm i && npm remove mocha && npm i mocha
+  args:
+    chdir: /myProject/userapi
