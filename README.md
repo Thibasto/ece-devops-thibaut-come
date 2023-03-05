@@ -36,7 +36,8 @@ npm run test
 You can find the script of the workflow under the `.github/workflows` folder of the repository.
 
 Here is a screenshot of the worflow working well in github:
-![](images/pipe.png)
+
+![](images/Pipe.png)
 
 ### 3. Configure and provision a virtual environment and run your application using the IaC approach
 
