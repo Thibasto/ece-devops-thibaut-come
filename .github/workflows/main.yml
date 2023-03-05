@@ -14,9 +14,9 @@ jobs:
       run:
         working-directory: userapi
     steps:
-      - uses: checkout
-      - name: Use node.js
-        uses: setup-node
+      - uses: actions/checkout@v3
+      - name: node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '16'
       - run: npm install
