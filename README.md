@@ -12,7 +12,6 @@ This first part is about making a user API using express. You can find my test w
 To start the API, first install redis server on your computer, then run : 
 ```
 redis-server
-```
 cd userapi
 npm run start
 ```
@@ -37,7 +36,7 @@ npm run test
 You can find the script of the workflow under the `.github/workflows` folder of the repository.
 
 Here is a screenshot of the worflow working well in github:
-![](image/pipe.png)
+![](images/pipe.png)
 
 ### 3. Configure and provision a virtual environment and run your application using the IaC approach
 
@@ -53,7 +52,7 @@ cd userapi/
 docker tag comechappuis/devopschappuis <DOCKER_ACCOUNT_NAME>/<CUSTOM_IMAGE_NAME>
 docker push <DOCKER_ACCOUNT_NAME>/<CUSTOM_IMAGE_NAME>
 ```
-![](image/docker.png)
+![](images/docker.png)
 
 ### 5. Make container orchestration using Docker Compose
 The `docker-compose.yml` will first create a redis container, and the our app container to run it.
